@@ -1,0 +1,204 @@
+.about-me {
+
+  border-radius: 100%;
+  border: solid white;
+  height: 170px;
+  width: 170px;
+}
+
+.container-fluid {
+  float: left;
+  margin-top: 230px;
+}
+
+.name {
+
+  margin-top: 90px;
+  margin-left: 30%;
+
+}
+
+.mimi {
+  padding-right: 70px;
+  font-size: 50px;
+}
+
+ .klein {
+  padding-left: 70px;
+  font-size: 50px;
+ }
+
+
+.bio {
+  width: 45%;
+  text-align: justify;
+  line-height: 30px;
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 20px;
+  color: white;
+  background: black;
+  float: right;
+  margin-right: 50px;
+
+}
+
+nav {
+margin-top: 100px;
+font-size: 30px;
+color: white;
+font-family: 'Mate SC', cursive;
+text-decoration: none;
+
+}
+
+ a:link, a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: grey;
+}
+
+.about {
+  float: left;
+}
+
+.work {
+  padding-top: 50px;
+  padding-left: 150px;
+}
+
+.contact {
+  float: right;
+  padding-top: 50px;
+  padding-left: 130px;
+}
+
+.photos {
+  float: left;
+
+
+
+}
+
+.caption {
+
+
+  background: black;
+  color: white;
+  font-size: 15px;
+  margin-bottom: 200px;
+  opacity: .7;
+  font-family: 'Quicksand', sans-serif;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 5px;
+}
+
+td {
+  position: relative;
+}
+
+
+.img {
+  height: 170px;
+  width: 170px;
+
+  border: solid white;
+
+}
+
+.first {
+  margin-left: 30px;
+  margin-right: 10px;
+
+}
+
+.last {
+  margin-left: 10px;
+
+}
+
+.second {
+  margin-top: 10px;
+
+}
+
+.third {
+  margin-top: 10px;
+  }
+
+.fourth {
+  margin-top: 10px;
+}
+
+.envelope {
+  height: 40px;
+  width: 40px;
+
+}
+
+.facebook {
+  height: 30px;
+  width: 15px;
+}
+
+a {
+  padding: 40px 5px 0 5px;
+}
+
+.hot {
+  height: 60px;
+  width: 110px;
+  text-align: center;
+  padding-top: 0;
+
+}
+
+body {
+  background: black;
+  margin-bottom: 10px;
+
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Fredericka the Great', cursive;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.tap {
+  display: none;
+}
+@media (max-width: 500px) {
+  .first {
+    margin-left: 0px;
+  }
+  .bio {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    float: none;
+  }
+
+  .fourth {
+    margin-bottom: 20px;
+  }
+
+  .tap {
+    display: block;
+    text-align: center;
+    color: white;
+    margin-top: 25px;
+    margin-bottom: 0;
+  }
+
+
+}
+
+
+
