@@ -174,7 +174,32 @@ h1 {
 .tap {
   display: none;
 }
+
 @media (max-width: 500px) {
+
+  .mimi {
+
+
+
+
+  }
+
+  .about-me {
+
+    height: 20px;
+    width: 20px;
+  }
+
+  .tap {
+    display: block;
+    text-align: center;
+    color: white;
+    margin-top: 25px;
+    margin-bottom: 0;
+  }
+
+}
+/*@media (max-width: 500px) {
   .first {
     margin-left: 0px;
   }
@@ -199,6 +224,8 @@ h1 {
 
 
 }
+*/
+
 
 
 

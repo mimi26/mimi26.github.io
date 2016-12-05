@@ -1,0 +1,65 @@
+
+ul {
+  -webkit-column-count: 3;
+       -moz-column-count: 3;
+  column-count: 3;
+  list-style-type: none;
+  text-align: center;
+  line-height: 60px;
+  padding-top: 20px;
+
+  font-size: 20px;
+
+}
+
+.info {
+  padding-top: 30px;
+}
+.explain {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+
+.heading {
+  background: red;
+  color: white;
+  padding: 5px;
+  padding-left: 15px;
+  font-family: 'Merriweather', serif;
+}
+
+.release {
+  background: black;
+  color: white;
+  padding-top: 1px;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+}
+
+
+.logo2 {
+  height: 200px;
+  width: 350px;
+}
+.text {
+  background: url("images/gamap2.jpg") center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 600px;
+  font-family: 'Patua One', cursive;
+  margin-top: -30px;
+}
+a {
+  text-decoration: none;
+}
+
+
+.info {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
