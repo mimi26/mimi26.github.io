@@ -1,97 +1,120 @@
-var popup = document.getElementById('basket');
-popup.onmouseover = function() {
-  document.getElementById('fluid').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('fluid').style.display = 'none';
-}
+  // $('.caption').hover(function(event) {
+  //   // console.log(event.target.lastChild)
+  //   // event.target. += ' caption-reveal';
+  //   this.toggleClass('.caption-reveal');
+  //   });
 
-var popup = document.getElementById('fire');
-popup.onmouseover = function() {
-  document.getElementById('poi').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('poi').style.display = 'none';
-}
 
-var popup = document.getElementById('eating');
-popup.onmouseover = function() {
-  document.getElementById('evolution').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('evolution').style.display = 'none';
-}
-var popup = document.getElementById('hat');
-popup.onmouseover = function() {
-  document.getElementById('knit').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('knit').style.display = 'none';
-}
 
-var popup = document.getElementById('silks');
-popup.onmouseover = function() {
-  document.getElementById('hanging').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('hanging').style.display = 'none';
-}
 
-var popup = document.getElementById('guitar');
-popup.onmouseover = function() {
-  document.getElementById('playing').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('playing').style.display = 'none';
-}
+// for (let i = 0; i < gridImg.length; i++) {
+//   for (let j = 0; j < caption.length; i++) {
+//   gridImg[i].onmouseover = function() {
+//     console.log(gridImg[i])
+//   caption[j].style.display = 'block';
+// }
 
-var popup = document.getElementById('ferment');
-popup.onmouseover = function() {
-  document.getElementById('alive').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('alive').style.display = 'none';
-}
+// gridImg[i].onmouseout = function() {
+//   caption[j].style.display = 'none';
+// }
+// }
+// }
 
-var popup = document.getElementById('crazy');
-popup.onmouseover = function() {
-  document.getElementById('aunt').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('aunt').style.display = 'none';
-}
 
-var popup = document.getElementById('dragon');
-popup.onmouseover = function() {
-  document.getElementById('flying').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('flying').style.display = 'none';
-}
+// var popup = document.getElementById('basket');
+// popup.onmouseover = function() {
+//   document.getElementById('fluid').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('fluid').style.display = 'none';
+// }
 
-var popup = document.getElementById('optic');
-popup.onmouseover = function() {
-  document.getElementById('nerve').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('nerve').style.display = 'none';
-}
+// var popup = document.getElementById('fire');
+// popup.onmouseover = function() {
+//   document.getElementById('poi').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('poi').style.display = 'none';
+// }
 
-var popup = document.getElementById('dye');
-popup.onmouseover = function() {
-  document.getElementById('test').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('test').style.display = 'none';
-}
+// var popup = document.getElementById('eating');
+// popup.onmouseover = function() {
+//   document.getElementById('evolution').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('evolution').style.display = 'none';
+// }
+// var popup = document.getElementById('hat');
+// popup.onmouseover = function() {
+//   document.getElementById('knit').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('knit').style.display = 'none';
+// }
 
-var popup = document.getElementById('mutty');
-popup.onmouseover = function() {
-  document.getElementById('helping').style.display = 'block';
-}
-popup.onmouseout = function() {
-  document.getElementById('helping').style.display = 'none';
-}
+// var popup = document.getElementById('silks');
+// popup.onmouseover = function() {
+//   document.getElementById('hanging').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('hanging').style.display = 'none';
+// }
+
+// var popup = document.getElementById('guitar');
+// popup.onmouseover = function() {
+//   document.getElementById('playing').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('playing').style.display = 'none';
+// }
+
+// var popup = document.getElementById('ferment');
+// popup.onmouseover = function() {
+//   document.getElementById('alive').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('alive').style.display = 'none';
+// }
+
+// var popup = document.getElementById('crazy');
+// popup.onmouseover = function() {
+//   document.getElementById('aunt').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('aunt').style.display = 'none';
+// }
+
+// var popup = document.getElementById('dragon');
+// popup.onmouseover = function() {
+//   document.getElementById('flying').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('flying').style.display = 'none';
+// }
+
+// var popup = document.getElementById('optic');
+// popup.onmouseover = function() {
+//   document.getElementById('nerve').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('nerve').style.display = 'none';
+// }
+
+// var popup = document.getElementById('dye');
+// popup.onmouseover = function() {
+//   document.getElementById('test').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('test').style.display = 'none';
+// }
+
+// var popup = document.getElementById('mutty');
+// popup.onmouseover = function() {
+//   document.getElementById('helping').style.display = 'block';
+// }
+// popup.onmouseout = function() {
+//   document.getElementById('helping').style.display = 'none';
+// }
 
 /**
  * SmoothScroll

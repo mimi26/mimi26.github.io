@@ -78,14 +78,14 @@ a:hover {
 
 .photos {
   float: left;
+}
 
-
-
+.img-div {
+  height: 170px;
+  width: 170px;
 }
 
 .caption {
-
-
   background: black;
   color: white;
   font-size: 15px;
@@ -96,7 +96,19 @@ a:hover {
   top: 20px;
   left: 20px;
   padding: 5px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
 }
+
+.img-div:hover .caption {
+  visibility: visible;
+}
+
+
 
 td {
   position: relative;
@@ -106,9 +118,7 @@ td {
 .img {
   height: 170px;
   width: 170px;
-
   border: solid white;
-
 }
 
 .first {
@@ -174,6 +184,8 @@ h1 {
 .tap {
   display: none;
 }
+
+
 
 @media (max-width: 500px) {
 
