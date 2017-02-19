@@ -101,6 +101,10 @@ Landing Page
   justify-content: space-between;
 }
 
+.grid-container {
+  margin-left: 25px;
+}
+
 .img-grid {
   height: 170px;
   width: 170px;
@@ -114,6 +118,7 @@ Landing Page
   font-size: 20px;
   color: white;
   background: black;
+  margin-right: 25px;
  }
 
 .img-div:hover .caption {
