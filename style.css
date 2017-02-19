@@ -25,8 +25,7 @@ a:hover {
   text-align: center;
   font-family: 'Fredericka the Great', cursive;
   color: white;
-  margin-bottom: 50px
-}
+ }
 
 .next-section {
   margin-top: -140px;
@@ -48,19 +47,25 @@ a:hover {
 Landing Page
 ===========================*/
 
+.name-header {
+  display: flex;
+  justify-content: center;
+}
 .about-me {
+  margin: 0;
   border-radius: 100%;
   border: solid white;
   height: 170px;
   width: 170px;
 }
 
-.name {
+/*.name {
   margin-left: 30%;
-}
+}*/
 
 .mimi, .klein {
   font-size: 50px;
+  margin-top: 50px;
 }
 
 .mimi {
@@ -94,6 +99,7 @@ Landing Page
  /*=============================
  About
  ==============================*/
+
 
 .biography {
   margin-top: 250px;
@@ -283,6 +289,11 @@ Mobile
 
 @media (max-width: 500px) {
 
+  .name {
+    height: 300px;
+    width: 300px;
+  }
+
   .mimi {
 
 
@@ -290,11 +301,16 @@ Mobile
 
   }
 
-  .about-me {
+  .biography {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /*.about-me {
 
     height: 20px;
     width: 20px;
-  }
+  }*/
 
   .tap {
     display: block;
