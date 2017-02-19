@@ -74,6 +74,18 @@ a:hover {
   justify-content: space-between;
 }
 
+.next-section {
+  margin-top: -160px;
+  color: white;
+  font-family: 'Mate SC', cursive;
+  font-size: 20px;
+  line-height: 0;
+  }
+
+  .work-tag:hover {
+    color: grey;
+  }
+
 .img-div:hover .caption {
   visibility: visible;
 }
@@ -132,21 +144,34 @@ h1 {
 }
 
 .work-links {
-  height: 230px;
-  width: 290px;
+  height: 130px;
+  width: 190px;
 }
 
 .work-img {
-  height: 250px;
-  width: 290px;
+  height: 150px;
+  width: 210px;
 }
 
 .portfolio {
  margin-top: 150px;
+ margin-bottom: 300px;
 }
 
 #contact {
-  display: flex;
+  height: 300px
+  width: 300px;
+  margin-top: 200px;
+  margin-bottom: 250px;
+}
+
+.contact-links {
+  margin-top: 200px;
+  }
+
+.contact-link {
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 figure {
