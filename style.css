@@ -1,48 +1,17 @@
-.about-me {
-  border-radius: 100%;
-  border: solid white;
-  height: 170px;
-  width: 170px;
+/*=========================
+Global styles
+==========================*/
+
+body {
+  background: black;
+  margin-bottom: 10px;
 }
 
 .container-fluid {
-  float: left;
-  margin-top: 110px;
+   margin-top: 110px;
 }
 
-.name {
-  margin-left: 30%;
-}
-
-.mimi {
-  padding-right: 70px;
-  font-size: 50px;
-}
-
- .klein {
-  padding-left: 70px;
-  font-size: 50px;
- }
-
-.bio {
-  width: 45%;
-  text-align: justify;
-  line-height: 30px;
-  font-family: 'Annie Use Your Telescope', cursive;
-  font-size: 20px;
-  color: white;
-  background: black;
- }
-
-nav {
-  margin-top: 100px;
-  font-size: 30px;
-  color: white;
-  font-family: 'Mate SC', cursive;
-  text-decoration: none;
-}
-
- a:link, a:visited {
+a:link, a:visited {
   color: white;
   text-decoration: none;
 }
@@ -50,6 +19,64 @@ nav {
 a:hover {
   text-decoration: none;
   color: grey;
+}
+
+.header {
+  text-align: center;
+  font-family: 'Fredericka the Great', cursive;
+  color: white;
+  margin-bottom: 50px
+}
+
+.next-section {
+  margin-top: -160px;
+  color: white;
+  font-family: 'Mate SC', cursive;
+  font-size: 20px;
+  line-height: 0;
+}
+
+.next-label:hover {
+  color: grey;
+}
+
+.tap {
+  display: none;
+}
+
+/*===========================
+Landing Page
+===========================*/
+
+.about-me {
+  border-radius: 100%;
+  border: solid white;
+  height: 170px;
+  width: 170px;
+}
+
+.name {
+  margin-left: 30%;
+}
+
+.mimi, .klein {
+  font-size: 50px;
+}
+
+.mimi {
+  padding-right: 70px;
+ }
+
+ .klein {
+  padding-left: 70px;
+}
+
+ nav {
+  margin-top: 100px;
+  font-size: 30px;
+  color: white;
+  font-family: 'Mate SC', cursive;
+  text-decoration: none;
 }
 
 .portfolio-link {
@@ -63,28 +90,31 @@ a:hover {
   padding-left: 130px;
 }
 
-.img-div {
-  height: 170px;
-  width: 170px;
-}
+
+ /*=============================
+ About
+ ==============================*/
 
 .biography {
-  margin-top: 150px;
+  margin-top: 250px;
   display: flex;
   justify-content: space-between;
 }
 
-.next-section {
-  margin-top: -160px;
-  color: white;
-  font-family: 'Mate SC', cursive;
-  font-size: 20px;
-  line-height: 0;
-  }
+.img-grid {
+  height: 170px;
+  width: 170px;
+}
 
-  .work-tag:hover {
-    color: grey;
-  }
+.bio {
+  width: 45%;
+  text-align: justify;
+  line-height: 30px;
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 20px;
+  color: white;
+  background: black;
+ }
 
 .img-div:hover .caption {
   visibility: visible;
@@ -94,47 +124,12 @@ td {
   position: relative;
 }
 
-.envelope {
-  height: 40px;
-  width: 40px;
-}
+/*================================
+Work
+=================================*/
 
-.facebook {
-  height: 30px;
-  width: 15px;
-}
-
-a {
-  padding: 40px 5px 0 5px;
-}
-
-.hot {
-  height: 60px;
-  width: 110px;
-  text-align: center;
-  padding-top: 0;
-
-}
-
-body {
-  background: black;
-  margin-bottom: 10px;
-}
-
-h1 {
-  text-align: center;
-  font-family: 'Fredericka the Great', cursive;
-  color: white;
-  margin-bottom: 50px;
-}
-
-.tap {
-  display: none;
-}
-
-.img-grid {
-  height: 170px;
-  width: 170px;
+#portfolio {
+  margin-top: 300px;
 }
 
 .work-container {
@@ -158,11 +153,15 @@ h1 {
  margin-bottom: 300px;
 }
 
+/*================================
+Contact
+================================*/
+
 #contact {
   height: 300px
   width: 300px;
-  margin-top: 200px;
-  margin-bottom: 250px;
+  margin-top: 400px;
+  margin-bottom: 400px;
 }
 
 .contact-links {
@@ -173,6 +172,18 @@ h1 {
   margin-right: 30px;
   margin-left: 30px;
 }
+
+/*==============================
+Footer
+==============================*/
+
+footer {
+  margin-top: -40px;
+}
+
+/*=============================
+Transparent caption overlay
+=============================*/
 
 figure {
   display: block;
@@ -238,7 +249,9 @@ figure:hover:before {
 .cap-bot:hover figcaption { bottom: 0; }
 */
 
-
+/*=================================
+Mobile
+=================================*/
 
 @media (max-width: 500px) {
 
