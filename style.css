@@ -29,7 +29,7 @@ a:hover {
 }
 
 .next-section {
-  margin-top: -160px;
+  margin-top: -140px;
   color: white;
   font-family: 'Mate SC', cursive;
   font-size: 20px;
@@ -118,15 +118,29 @@ Landing Page
   font-size: 20px;
   color: white;
   background: black;
-  margin-right: 25px;
+  margin-right: 35px;
  }
 
 .img-div:hover .caption {
   visibility: visible;
 }
 
-td {
-  position: relative;
+.line {
+  border-top: 1px dotted white;
+}
+
+.skills, ul {
+  margin-top: 30px;
+  font-family: 'Mate SC', cursive;
+  font-size: 18px;
+}
+
+ul {
+  -webkit-column-count: 2;
+       -moz-column-count: 2;
+  column-count: 2;
+  list-style-type: none;
+  text-align: center;
 }
 
 /*================================
@@ -148,14 +162,23 @@ Work
   width: 190px;
 }
 
-.work-img {
+.work-img, .work-caption {
   height: 150px;
   width: 210px;
+}
+
+.work-label {
+  font-size: 18px;
 }
 
 .portfolio {
  margin-top: 150px;
  margin-bottom: 300px;
+}
+
+.work-caption {
+  font-size: 26px;
+  font-family: 'Mate SC', cursive;
 }
 
 /*================================
@@ -248,11 +271,11 @@ figure:hover:before {
 .cap-top:before { top: 10px; left: 10px; }
 .cap-top figcaption { left: 0; top: -30%; }
 .cap-top:hover figcaption { top: 0; }
-
+*/
 .cap-bot:before { bottom: 10px; left: 10px; }
 .cap-bot figcaption { left: 0; bottom: -30%;}
 .cap-bot:hover figcaption { bottom: 0; }
-*/
+
 
 /*=================================
 Mobile
