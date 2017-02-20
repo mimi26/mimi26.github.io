@@ -5,6 +5,7 @@ Global styles
 body {
   background: black;
   margin-bottom: 10px;
+
 }
 
 .container-fluid {
@@ -51,6 +52,7 @@ Landing Page
   display: flex;
   justify-content: center;
 }
+
 .about-me {
   margin: 0;
   border-radius: 100%;
@@ -69,22 +71,38 @@ Landing Page
 }
 
 .mimi {
-  padding-right: 70px;
+  padding-right: 5%;
  }
 
  .klein {
-  padding-left: 70px;
+  padding-left: 5%;
 }
 
  nav {
-  margin-top: 100px;
+
   font-size: 30px;
   color: white;
   font-family: 'Mate SC', cursive;
   text-decoration: none;
 }
 
+.about {
+  margin-top: 5%;
+  margin-left: 30%;
+}
+
 .portfolio-link {
+  margin-top: 5%;
+  margin-left: 46%;
+}
+
+.contact {
+  margin-top: 5%;
+  margin-left: 63%;
+
+}
+
+/*.portfolio-link {
   padding-top: 50px;
   padding-left: 150px;
 }
@@ -93,7 +111,7 @@ Landing Page
   float: right;
   padding-top: 50px;
   padding-left: 130px;
-}
+}*/
 
 
  /*=============================
@@ -289,10 +307,63 @@ Mobile
 
 @media (max-width: 500px) {
 
-  .name {
-    height: 300px;
-    width: 300px;
+  body {
+    width: 415px;
   }
+
+  .name-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-me {
+    height: 100px;
+    width: 100px;
+  }
+
+/*.name {
+  margin-left: 30%;
+}*/
+
+.mimi, .klein {
+  font-size: 25px;
+  margin-top: 50px;
+  height: 50px;
+  width: 100px;
+  padding: 0;
+}
+
+.klein {
+  margin-top: 30px;
+}
+
+.mimi_klein {
+  display: flex;
+  justify-content: space-around;
+}
+
+  nav {
+    font-size: 25px;
+      }
+
+  .about, .po\rtfolio-link, .contact {
+    margin: 0;
+  }
+
+/*.portfolio-link {
+  padding-top: 50px;
+  padding-left: 150px;
+}
+
+.contact {
+  float: right;
+  padding-top: 50px;
+  padding-left: 130px;
+}*/
+
+
+
 
   .mimi {
 
@@ -306,11 +377,10 @@ Mobile
     flex-direction: column;
   }
 
-  /*.about-me {
+  .about-me {
 
-    height: 20px;
-    width: 20px;
-  }*/
+
+  }
 
   .tap {
     display: block;
