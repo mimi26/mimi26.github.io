@@ -61,10 +61,6 @@ Landing Page
   width: 170px;
 }
 
-/*.name {
-  margin-left: 30%;
-}*/
-
 .mimi, .klein {
   font-size: 50px;
   margin-top: 50px;
@@ -79,7 +75,6 @@ Landing Page
 }
 
  nav {
-
   font-size: 30px;
   color: white;
   font-family: 'Mate SC', cursive;
@@ -99,20 +94,7 @@ Landing Page
 .contact {
   margin-top: 5%;
   margin-left: 63%;
-
 }
-
-/*.portfolio-link {
-  padding-top: 50px;
-  padding-left: 150px;
-}
-
-.contact {
-  float: right;
-  padding-top: 50px;
-  padding-left: 130px;
-}*/
-
 
  /*=============================
  About
@@ -125,6 +107,10 @@ Landing Page
   justify-content: space-between;
 }
 
+.tap {
+  display: none;
+}
+
 .grid-container {
   margin-left: 25px;
 }
@@ -135,6 +121,7 @@ Landing Page
 }
 
 .bio {
+  order: 2;
   width: 45%;
   text-align: justify;
   line-height: 30px;
@@ -218,7 +205,7 @@ Contact
 
 .contact-links {
   margin-top: 200px;
-  }
+}
 
 .contact-link {
   margin-right: 30px;
@@ -288,14 +275,6 @@ figure:hover:before {
 .cap figcaption { bottom: 0; left: -30%; }
 .cap:hover figcaption { left: 0; }
 
-/*.cap-right:before { bottom: 10px; right: 10px; }
-.cap-right figcaption { bottom: 0; right: -30%; }
-.cap-right:hover figcaption { right: 0; }
-
-.cap-top:before { top: 10px; left: 10px; }
-.cap-top figcaption { left: 0; top: -30%; }
-.cap-top:hover figcaption { top: 0; }
-*/
 .cap-bot:before { bottom: 10px; left: 10px; }
 .cap-bot figcaption { left: 0; bottom: -30%;}
 .cap-bot:hover figcaption { bottom: 0; }
@@ -322,54 +301,30 @@ Mobile
     width: 100px;
   }
 
-/*.name {
-  margin-left: 30%;
-}*/
+  .mimi, .klein {
+    font-size: 25px;
+    margin-top: 50px;
+    height: 50px;
+    width: 100px;
+    padding: 0;
+  }
 
-.mimi, .klein {
-  font-size: 25px;
-  margin-top: 50px;
-  height: 50px;
-  width: 100px;
-  padding: 0;
-}
+  .klein {
+    margin-top: 30px;
+  }
 
-.klein {
-  margin-top: 30px;
-}
-
-.mimi_klein {
-  display: flex;
-  justify-content: space-around;
-}
+  .mimi_klein {
+    display: flex;
+    justify-content: space-around;
+  }
 
   nav {
     font-size: 25px;
-      }
-
-  .about, .po\rtfolio-link, .contact {
-    margin: 0;
+    margin-top: 40px;
   }
 
-/*.portfolio-link {
-  padding-top: 50px;
-  padding-left: 150px;
-}
-
-.contact {
-  float: right;
-  padding-top: 50px;
-  padding-left: 130px;
-}*/
-
-
-
-
-  .mimi {
-
-
-
-
+  .about, .portfolio-link, .contact {
+    margin: 0;
   }
 
   .biography {
@@ -377,33 +332,18 @@ Mobile
     flex-direction: column;
   }
 
-  .about-me {
-
-
-  }
-
-  .tap {
-    display: block;
-    text-align: center;
-    color: white;
-    margin-top: 25px;
-    margin-bottom: 0;
-  }
-
-}
-/*@media (max-width: 500px) {
-  .first {
-    margin-left: 0px;
-  }
   .bio {
-    width: 60%;
-    margin-right: auto;
-    margin-left: auto;
-    float: none;
+    order: -1;
+    text-align: center;
+    line-height: 30px;
+    font-family: 'Annie Use Your Telescope', cursive;
+    font-size: 15px;
+    width: 85%;
   }
 
-  .fourth {
-    margin-bottom: 20px;
+  .img-grid {
+    height: 100px;
+    width: 100px;
   }
 
   .tap {
@@ -414,10 +354,15 @@ Mobile
     margin-bottom: 0;
   }
 
+  .work-section {
+    margin-top: 10px;
+  }
 
+  .work-img, .work-caption {
+    height: 150px;
+    width: 205px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
-*/
-
-
-
 
