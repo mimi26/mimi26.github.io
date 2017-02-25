@@ -233,6 +233,8 @@ figure {
 }
 
 figcaption {
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 18px;
   position: absolute;
   background: black;
   background: rgba(0,0,0,0.75);
