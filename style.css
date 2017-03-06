@@ -154,7 +154,7 @@ Landing Page
   font-size: 18px;
 }
 
-ul {
+.skills {
   -webkit-column-count: 2;
        -moz-column-count: 2;
   column-count: 2;
@@ -196,7 +196,7 @@ Work
 }
 
 .work-caption {
-  font-size: 26px;
+  font-size: 13px;
   font-family: 'Mate SC', cursive;
 }
 
@@ -214,6 +214,12 @@ Work
 
 .link:hover {
   background: gray;
+}
+
+.tech-list {
+  margin-top: -6px;
+  list-style: none;
+  margin-left: -35px;
 }
 
 /*================================
