@@ -181,13 +181,13 @@ Work
   width: 190px;
 }
 
+.top-work {
+  margin-bottom: 50px;
+}
+
 .work-img, .work-caption {
   height: 150px;
   width: 210px;
-}
-
-.work-label {
-  font-size: 18px;
 }
 
 .portfolio {
@@ -198,6 +198,22 @@ Work
 .work-caption {
   font-size: 26px;
   font-family: 'Mate SC', cursive;
+}
+
+.link {
+  display: inline;
+  border: 1px solid black;
+  border-radius: 10%;
+  padding: 3%;
+  font-family: 'Mate SC', cursive;
+  font-size: 16px;
+  background: white;
+  box-shadow: 5px 5px 5px #555555;
+  color: black;
+  }
+
+.link:hover {
+  background: gray;
 }
 
 /*================================
