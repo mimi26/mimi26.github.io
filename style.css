@@ -210,6 +210,7 @@ Work
   background: white;
   box-shadow: 5px 5px 5px #555555;
   color: black;
+  margin-left: 20px;
   }
 
 .link:hover {
@@ -219,7 +220,7 @@ Work
 .tech-list {
   margin-top: -6px;
   list-style: none;
-  margin-left: -35px;
+  margin-left: -30px;
 }
 
 /*================================
