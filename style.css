@@ -51,6 +51,7 @@ Landing Page
 .name-header {
   display: flex;
   justify-content: center;
+  margin-top: -15px;
 }
 
 .about-me {
@@ -58,7 +59,7 @@ Landing Page
   border-radius: 100%;
   border: solid white;
   height: 170px;
-  width: 170px;
+  width: 165px;
 }
 
 .mimi, .klein {
@@ -72,6 +73,11 @@ Landing Page
 
  .klein {
   padding-left: 5%;
+}
+
+.web-dev {
+  font-family: 'Mate SC', cursive;
+  font-size: 50px;
 }
 
  nav {
