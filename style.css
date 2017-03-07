@@ -9,7 +9,7 @@ body {
 }
 
 .container-fluid {
-   margin-top: 110px;
+   margin-top: 40px;
 }
 
 a:link, a:visited {
@@ -51,7 +51,6 @@ Landing Page
 .name-header {
   display: flex;
   justify-content: center;
-  margin-top: -15px;
 }
 
 .about-me {
