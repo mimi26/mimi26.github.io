@@ -114,6 +114,10 @@ Landing Page
   justify-content: space-between;
 }
 
+.hi {
+  margin-bottom: 30px;
+}
+
 .tap {
   display: none;
 }
@@ -350,6 +354,10 @@ Mobile
   .mimi-klein {
     display: flex;
     justify-content: space-around;
+  }
+
+  .web-dev {
+    font-size: 25px;
   }
 
   nav {
