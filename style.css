@@ -3,7 +3,6 @@ Global styles
 ==========================*/
 
 body {
-  background: black;
   margin-bottom: 10px;
 
 }
@@ -13,8 +12,8 @@ body {
 }
 
 a:link, a:visited {
-  color: white;
   text-decoration: none;
+  color: black;
 }
 
 a:hover {
@@ -25,12 +24,10 @@ a:hover {
 .header {
   text-align: center;
   font-family: 'Fredericka the Great', cursive;
-  color: white;
  }
 
 .next-section {
   margin-top: -140px;
-  color: white;
   font-family: 'Mate SC', cursive;
   font-size: 20px;
   line-height: 0;
@@ -56,7 +53,7 @@ Landing Page
 .about-me {
   margin: 0;
   border-radius: 100%;
-  border: solid white;
+  border: 1px solid black;
   height: 170px;
   width: 165px;
 }
@@ -75,15 +72,13 @@ Landing Page
 }
 
 .web-dev {
-  font-family: 'Mate SC', cursive;
+  font-family: 'Fredericka the Great', cursive;
   font-size: 50px;
-  color: white;
   text-align: center;
 }
 
  nav {
   font-size: 30px;
-  color: white;
   font-family: 'Mate SC', cursive;
   text-decoration: none;
 }
@@ -138,8 +133,6 @@ Landing Page
   line-height: 30px;
   font-family: 'Annie Use Your Telescope', cursive;
   font-size: 20px;
-  color: white;
-  background: black;
   margin-right: 35px;
  }
 
@@ -148,7 +141,7 @@ Landing Page
 }
 
 .line {
-  border-top: 1px dotted white;
+  border-top: 1px dotted black;
 }
 
 .skills, ul {
