@@ -45,13 +45,18 @@ a:hover {
 Landing Page
 ===========================*/
 
-/*.code {
-  height: 600px;
+.code {
+  margin-top: -40px;
+  height: 700px;
   width: 100%;
-  background: url('images/code.jpg');
+  background: url('images/code2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   position: absolute;
   opacity: .3;
-}*/
+}
+
 .name-header {
   display: flex;
   justify-content: center;
@@ -63,7 +68,7 @@ Landing Page
   border: 1px solid black;
   height: 170px;
   width: 165px;
-  /*z-index: 2;*/
+  z-index: 2;
 }
 
 .mimi, .klein {
