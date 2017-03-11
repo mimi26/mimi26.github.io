@@ -18,7 +18,7 @@ a:link, a:visited {
 
 a:hover {
   text-decoration: none;
-  color: grey;
+  color: #ff0088;
 }
 
 .header {
@@ -49,12 +49,13 @@ Landing Page
   margin-top: -40px;
   height: 700px;
   width: 100%;
-  background: url('images/code2.jpg');
+  background: url('images/code7.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: absolute;
-  opacity: .3;
+  opacity: .15;
+  z-index: -1;
 }
 
 .name-header {
@@ -384,7 +385,6 @@ Mobile
     order: -1;
     text-align: center;
     line-height: 30px;
-    font-family: 'Annie Use Your Telescope', cursive;
     font-size: 15px;
     width: 85%;
   }
