@@ -2,13 +2,9 @@
 Global styles
 ==========================*/
 
-body {
-  margin-bottom: 10px;
-
-}
-
 .container-fluid {
    margin-top: 40px;
+   padding: 0 0;
 }
 
 a:link, a:visited {
@@ -43,14 +39,13 @@ a:hover {
 
 .code-landing, .code-work {
   min-height: 100vh;
-  width: 100%;
   background: url('images/code.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   z-index: -1;
   background-blend-mode: screen;
-  background-color: #cfcfcf;
+  background-color: #dddddd;
 }
 /*===========================
 Landing Page
@@ -59,6 +54,7 @@ Landing Page
 .name {
   padding-top: 60px;
 }
+
 .code-landing {
   margin-top: -40px;
 }
@@ -183,7 +179,7 @@ Work
 
 #portfolio {
   margin-top: 300px;
-  padding-top: 60px;
+  padding-top: 20px;
 }
 
 .work-container {
@@ -202,8 +198,8 @@ Work
 }
 
 .work-img, .work-caption {
-  height: 150px;
-  width: 210px;
+  height: 22vh;
+  width: 33vh;
 }
 
 .work-img {
@@ -236,8 +232,7 @@ Work
 .link:hover {
   background: #ffffcc;
   color: black;
-  /*border: 1px solid white;*/
-}
+ }
 
 .tech-list {
   margin-top: -6px;
@@ -341,10 +336,6 @@ Mobile
 
 @media (max-width: 500px) {
 
-  body {
-    width: 415px;
-  }
-
   .name-header {
     display: flex;
     flex-direction: column;
@@ -404,16 +395,12 @@ Mobile
     width: 100px;
   }
 
-  figcaption {
-    font-size: 10px;
-  }
-
   .tap {
     display: block;
     text-align: center;
-    color: white;
     margin-top: 25px;
     margin-bottom: 0;
+    font-size: 10px;
   }
 
   .work-section {
@@ -421,10 +408,10 @@ Mobile
   }
 
   .work-img, .work-caption {
-    height: 150px;
-    width: 205px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+  height: 15vh;
+  width: 30vw;
+  margin-left: 20px;
+  font-size: 10px;
 }
+
 
