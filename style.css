@@ -34,28 +34,30 @@ a:hover {
 }
 
 .next-label:hover {
-  color: grey;
+  color: #ff0088;
 }
 
 .tap {
   display: none;
 }
 
-/*===========================
-Landing Page
-===========================*/
-
-.code {
-  margin-top: -40px;
-  height: 700px;
+.code-landing, .code-work {
+  height: 800px;
   width: 100%;
-  background: url('images/code7.png');
+  background: url('images/code.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: absolute;
-  opacity: .15;
+  opacity: .12;
   z-index: -1;
+}
+/*===========================
+Landing Page
+===========================*/
+
+.code-landing {
+  margin-top: -40px;
 }
 
 .name-header {
@@ -186,6 +188,10 @@ Work
   margin-top: 50px;
 }
 
+.code-work {
+  margin-top: 285px;
+}
+
 .work-links {
   height: 130px;
   width: 190px;
@@ -198,6 +204,10 @@ Work
 .work-img, .work-caption {
   height: 150px;
   width: 210px;
+}
+
+.work-img {
+  border: 3px solid #ffff66;
 }
 
 .portfolio {
@@ -224,9 +234,9 @@ Work
   }
 
 .link:hover {
-  background: black;
-  color: white;
-  border: 1px solid white;
+  background: #ffffcc;
+  color: black;
+  /*border: 1px solid white;*/
 }
 
 .tech-list {
@@ -392,6 +402,10 @@ Mobile
   .img-grid {
     height: 100px;
     width: 100px;
+  }
+
+  figcaption {
+    font-size: 10px;
   }
 
   .tap {
