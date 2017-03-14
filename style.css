@@ -52,7 +52,7 @@ Landing Page
 ===========================*/
 
 .name {
-  padding-top: 60px;
+  padding-top: 35px;
 }
 
 .code-landing {
@@ -240,6 +240,10 @@ Work
   margin-left: -30px;
 }
 
+.next-contact {
+  margin-top: -400px;
+}
+
 /*================================
 Contact
 ================================*/
@@ -408,10 +412,11 @@ Mobile
   }
 
   .work-img, .work-caption {
-  height: 15vh;
-  width: 30vw;
-  margin-left: 20px;
+  height: 18vh;
+  width: 37vw;
   font-size: 10px;
+  }
+
 }
 
 
