@@ -182,6 +182,10 @@ Work
   padding-top: 20px;
 }
 
+.portfolio-header {
+  margin-bottom: -30px;
+}
+
 .work-container {
   display: flex;
   justify-content: space-around;
@@ -412,9 +416,13 @@ Mobile
   }
 
   .work-img, .work-caption {
-  height: 18vh;
-  width: 37vw;
-  font-size: 10px;
+    height: 18vh;
+    width: 37vw;
+    font-size: 10px;
+  }
+
+  .next-contact {
+    margin-top: -350px;
   }
 
 }
