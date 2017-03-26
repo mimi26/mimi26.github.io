@@ -23,7 +23,6 @@ a:hover {
  }
 
 .next-section {
-  margin-top: -140px;
   font-family: 'Mate SC', cursive;
   font-size: 20px;
   line-height: 0;
@@ -244,6 +243,10 @@ Work
   margin-left: -30px;
 }
 
+.next-contact {
+  margin-top: -100px;
+}
+
 .next-contact:not(*:root) {
   margin-top: -400px;
 }
@@ -343,6 +346,9 @@ Mobile
 =================================*/
 
 @media (max-width: 500px) {
+  .next-section {
+    font-size: 16px;
+  }
 
   .name-header {
     display: flex;
@@ -419,6 +425,14 @@ Mobile
     height: 18vh;
     width: 37vw;
     font-size: 10px;
+  }
+
+  body:last-child .next-contact, x:-moz-any-link {
+    padding-top: 355px;
+  }
+  
+  .next-contact:not(*:root) {
+    padding-top: 50px;
   }
 }
 
