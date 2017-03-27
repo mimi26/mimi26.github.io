@@ -172,6 +172,11 @@ Landing Page
   text-align: center;
 }
 
+.work-section {
+  margin-top: -5em;
+  margin-left: 5em;
+}
+
 /*================================
 Work
 =================================*/
@@ -419,6 +424,7 @@ Mobile
 
   .work-section {
     margin-top: 10px;
+    margin-left: 0;
   }
 
   .work-img, .work-caption {
@@ -430,7 +436,7 @@ Mobile
   body:last-child .next-contact, x:-moz-any-link {
     padding-top: 355px;
   }
-  
+
   .next-contact:not(*:root) {
     padding-top: 50px;
   }
