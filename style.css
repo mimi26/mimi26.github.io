@@ -414,6 +414,10 @@ Mobile
     width: 100px;
   }
 
+  figcaption {
+    font-size: 10px;
+  }
+
   .tap {
     display: block;
     text-align: center;
