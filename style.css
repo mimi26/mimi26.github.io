@@ -106,22 +106,20 @@ Landing Page
 }
 
 @keyframes about-nav {
-  0% {left:-1000px}
-  100% {left:0}
+  0% {top: 140px; left: 250px}
+  100% {top: 0; left: 0}
 }
 
 .portfolio-link {
   margin-top: 5%;
   margin-left: 46%;
   position: relative;
-  animation-name: portfolio-nav;
-  animation-duration: 2s;
 }
 
-@keyframes portfolio-nav {
+/*@keyframes portfolio-nav {
   0% {top: 1000px}
   100% {top: 0}
-}
+}*/
 
 .contact {
   margin-top: 5%;
@@ -132,38 +130,10 @@ Landing Page
 }
 
 @keyframes contact-nav {
-  0% {right: -1000px}
-  100% {right: 0}
+  0% {top: -120px; right: 200px}
+  100% {top: 0; right: 0}
 }
 
-/*div {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    position: relative;
-    -webkit-animation-name: example; 
-    -webkit-animation-duration: 4s; 
-    animation-name: example;
-    animation-duration: 4s;
-}
-
-
-@-webkit-keyframes example {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:yellow; left:200px; top:0px;}
-    50%  {background-color:blue; left:200px; top:200px;}
-    75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
-}
-
-
-@keyframes example {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:yellow; left:200px; top:0px;}
-    50%  {background-color:blue; left:200px; top:200px;}
-    75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
-}*/
  /*=============================
  About
  ==============================*/
