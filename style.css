@@ -102,7 +102,7 @@ Landing Page
   margin-left: 30%;
   position: relative;
   animation-name: about-nav;
-  animation-duration: 2s;
+  animation-duration: 3s;
 }
 
 @keyframes about-nav {
@@ -126,7 +126,7 @@ Landing Page
   margin-left: 63%;
   position: relative;
   animation-name: contact-nav;
-  animation-duration: 2s;
+  animation-duration: 3s;
 }
 
 @keyframes contact-nav {
