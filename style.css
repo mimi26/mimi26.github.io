@@ -38,7 +38,7 @@ a:hover {
 }
 
 .code-landing, .code-work {
-  min-height: 100vh;
+  min-height: 106vh;
   background: url('images/code.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -52,7 +52,7 @@ Landing Page
 ===========================*/
 
 .name {
-  padding-top: 35px;
+  padding-top: 100px;
 }
 
 .code-landing {
@@ -428,7 +428,8 @@ Mobile
     text-align: center;
     line-height: 30px;
     font-size: 15px;
-    width: 85%;
+    width: 100%;
+    padding: 0 20px;
   }
 
   .img-grid {
