@@ -3,8 +3,9 @@ Global styles
 ==========================*/
 
 .container-fluid {
-   margin-top: 40px;
+   /* margin-top: 40px; */
    padding: 0 0;
+   overflow: hidden;
 }
 
 a:link, a:visited {
@@ -368,6 +369,10 @@ Mobile
 =================================*/
 
 @media (max-width: 500px) {
+  .container-fluid {
+    margin: 0 0;
+  }
+
   .next-section {
     font-size: 16px;
   }
