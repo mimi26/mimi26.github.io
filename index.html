@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="smooth-scroll-master/dist/js/smooth-scroll.js"></script>
       <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
@@ -24,19 +25,18 @@
         <nav>
           <div class="mimi-klein">
             <div class="about">
-              <a href="#aboutme" class="smoothScroll">about</a>
+              <a href="#aboutme">about</a>
             </div>
             <div class="portfolio-link">
-              <a href="#portfolio" class="smoothScroll">portfolio</a>
+              <a href="#portfolio">portfolio</a>
             </div>
             <div class="contact">
-              <a href="#contact" class="smoothScroll">contact</a>
+              <a href="#contact">contact</a>
             </div>
           </div>
         </nav>
         </div><!--end name div-->
       </div>
-
         <div class="biography" id="aboutme">
           <div class="bio">
             <h1 class="header hi">Hi! I'm Mimi. </h1>
@@ -141,7 +141,7 @@ I'm also a fire performer -- I spin poi and fire fans, and eat fire. I like to k
             </table>
           </div>
         </div><!--end biography div-->
-        <a href="#portfolio" class="smoothScroll">
+        <a href="#portfolio">
           <div class="next-section  work-section text-center">
             <p class="next-label">portfolio</p>
             <span class="fa-stack fa-lg">
@@ -257,7 +257,7 @@ I'm also a fire performer -- I spin poi and fire fans, and eat fire. I like to k
       </div>
 
 
-        <a href="#contact" class="smoothScroll">
+        <a href="#contact">
           <div class="next-section  text-center next-contact">
             <p class="next-label">contact</p>
             <span class="fa-stack fa-lg">
@@ -289,7 +289,11 @@ I'm also a fire performer -- I spin poi and fire fans, and eat fire. I like to k
 
             <footer>Created by Mimi Klein</footer>
           </div><!--end container-->
-    <script src="main.js" type="text/javascript"></script>
+      <script>
+        var scroll = new SmoothScroll('a[href*="#"]', {
+          speed: 1500
+        });
+      </script>
 
 <!--=======================
   Google Analytics
