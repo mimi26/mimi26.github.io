@@ -208,11 +208,6 @@ Work
   margin: 5px 0 -40px 0;
 }
 
-/* .work-container {
-  display: flex;
-  justify-content: space-around;
-} */
-
 .work-bottom-row {
   margin-top: 130px;
 }
@@ -222,8 +217,6 @@ Work
 }
 
 .work-links {
-  /* height: 130px; */
-  /* width: 190px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -249,10 +242,6 @@ Work
  flex-direction: column;
  justify-content: center;
 }
-
-/* .portfolio-container {
-  margin-right: 120px;
-} */
 
 .work-caption {
   font-size: 13px;
@@ -300,10 +289,10 @@ Contact
 ================================*/
 
 #contact {
-  height: 300px;
+
+  height: 535px;
   width: 300px;
-  margin-top: 400px;
-  margin-bottom: 400px;
+  margin: 140px auto;
 }
 
 .contact-links {
@@ -518,7 +507,7 @@ Mobile
 
   #contact {
     margin: 140px 0 0 30px;
-    height: 520px;
+    height: 550px;
   }
 
   footer {
