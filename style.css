@@ -208,10 +208,10 @@ Work
   margin: 5px 0 -40px 0;
 }
 
-.work-container {
+/* .work-container {
   display: flex;
   justify-content: space-around;
-}
+} */
 
 .work-bottom-row {
   margin-top: 130px;
@@ -222,8 +222,11 @@ Work
 }
 
 .work-links {
-  height: 130px;
-  width: 190px;
+  /* height: 130px; */
+  /* width: 190px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .top-work {
@@ -247,13 +250,17 @@ Work
  justify-content: center;
 }
 
-.portfolio-container {
+/* .portfolio-container {
   margin-right: 120px;
-}
+} */
 
 .work-caption {
   font-size: 13px;
   font-family: 'Mate SC', cursive;
+}
+
+.links {
+  width: 200px;
 }
 
 .link {
@@ -293,7 +300,7 @@ Contact
 ================================*/
 
 #contact {
-  height: 300px
+  height: 300px;
   width: 300px;
   margin-top: 400px;
   margin-bottom: 400px;
@@ -435,6 +442,7 @@ Mobile
   .biography {
     display: flex;
     flex-direction: column;
+     margin-top: 50px;
   }
 
   .bio {
@@ -444,6 +452,10 @@ Mobile
     font-size: 15px;
     width: 100%;
     padding: 0 20px;
+  }
+
+  .grid-container {
+    margin-left: 10px;
   }
 
   .img-grid {
@@ -458,8 +470,18 @@ Mobile
   .tap {
     display: block;
     text-align: center;
-    margin: 48px 0 -23px 0;
+    margin: 48px 0 17px 0;
     font-size: 10px;
+  }
+
+  .code-work {
+    height: 200vh;
+    background-repeat: repeat-y;
+    background-size: auto;
+  }
+
+  #portfolio {
+    margin-top: 53px;
   }
 
   .portfolio-container {
@@ -469,6 +491,14 @@ Mobile
   .work-section {
     margin-top: 10px;
     margin-left: 0;
+  }
+
+  .work-links {
+    margin-bottom: 50px;
+  }
+
+  .work-bottom-row {
+    margin-top: 0;
   }
 
   .work-img, .work-caption {
@@ -483,6 +513,16 @@ Mobile
 
   .next-contact:not(*:root) {
     padding-top: 20px;
+    margin-top: -109px;
+  }
+
+  #contact {
+    margin: 140px 0 0 30px;
+    height: 520px;
+  }
+
+  footer {
+    margin-left: 10px;
   }
 }
 
