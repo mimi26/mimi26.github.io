@@ -515,5 +515,33 @@ Mobile
   }
 }
 
+/*========================
+        LRGE SCRN
+=========================*/
+
+@media (min-width: 1920px) {
+  .work-section {
+    margin-top: 5em;
+  }
+
+  .next-contact:not(*:root) {
+    margin-top: -497px;
+  }
+
+  #contact {
+    height: 100vh;
+    margin: 200px auto 0 auto;
+    padding-top: 100px;
+  }
+
+  footer {
+    height: 100px;
+    margin-left: 50px;
+    margin-top: -53px;
+  }
+}
+
+
+
 
 
