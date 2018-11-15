@@ -309,6 +309,7 @@ Footer
 ==============================*/
 
 footer {
+   /* to fix for 15 inch, remove this and replace with height: 6vh */
   margin-top: -40px;
 }
 
