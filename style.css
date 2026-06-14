@@ -3,7 +3,6 @@ Global styles
 ==========================*/
 
 .container-fluid {
-   /* margin-top: 40px; */
    padding: 0 0;
    overflow: hidden;
 }
@@ -153,6 +152,10 @@ Landing Page
   margin-left: 25px;
 }
 
+table {
+  margin: auto;
+}
+
 .img-grid {
   height: 170px;
   width: 170px;
@@ -195,6 +198,13 @@ Landing Page
   margin-left: 5em;
 }
 
+@media screen and (min-width: 1020px) {
+  .portfolio-down-arrow-link {
+  position: relative;
+  top: 200px;
+  }
+}
+
 /*================================
 Work
 =================================*/
@@ -214,6 +224,13 @@ Work
 
 .work-top-row {
   margin-top: 90px;
+}
+
+@media screen and (min-width: 1020px) {
+  .work-container {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .work-links {
@@ -289,10 +306,25 @@ Contact
 ================================*/
 
 #contact {
-
   height: 535px;
   width: 300px;
-  margin: 140px auto;
+}
+
+.contact-down-arrow-link {
+  position: relative;
+  top: -11px;
+}
+
+@media screen and (min-width: 1020px) {
+  .contact-down-arrow-link {
+    top: 170px;
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  #contact {
+    margin: 450px auto;
+  }
 }
 
 .contact-links {
@@ -303,11 +335,6 @@ Contact
   margin-right: 30px;
   margin-left: 30px;
 }
-
-/* .contact-link-text {
-  position: absolute;
-  left: 100000000px;
-} */
 
 /*==============================
 Footer
@@ -512,8 +539,8 @@ Mobile
   }
 
   #contact {
-    margin: 140px 0 0 30px;
-    height: 550px;
+    margin: 140px auto 0;
+    height: 100vh;
   }
 
   footer {
