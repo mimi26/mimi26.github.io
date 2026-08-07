@@ -61,20 +61,20 @@ Landing Page
 .name-header {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .about-me {
   margin: 0;
   border-radius: 100%;
   border: 1px solid black;
-  height: 170px;
+  height: 184px;
   width: 165px;
   z-index: 2;
 }
 
 .mimi, .klein {
   font-size: 50px;
-  margin-top: 50px;
 }
 
 .mimi {
@@ -245,7 +245,7 @@ Work
 
 .work-img, .work-caption {
   height: 22vh;
-  width: 33vh;
+  width: 32vh;
 }
 
 .work-img {
@@ -427,7 +427,7 @@ Mobile
   }
 
   .about-me {
-    height: 100px;
+    height: 112px;
     width: 100px;
   }
 
@@ -525,7 +525,7 @@ Mobile
 
   .work-img, .work-caption {
     height: 18vh;
-    width: 37vw;
+    width: 50vw;
     font-size: 10px;
   }
 
