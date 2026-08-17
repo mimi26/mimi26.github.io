@@ -1,104 +1,40 @@
-/*!
- * smooth-scroll v12.1.5: Animate scrolling to anchor links
- * (c) 2017 Chris Ferdinandi
- * MIT License
- * http://github.com/cferdinandi/smooth-scroll
- */
-
-/**
- * closest() polyfill
- * @link https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
- */
-if (window.Element && !Element.prototype.closest) {
-	Element.prototype.closest = function(s) {
-		var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-			i,
-			el = this;
-		do {
-			i = matches.length;
-			while (--i >= 0 && matches.item(i) !== el) {}
-		} while ((i < 0) && (el = el.parentElement));
-		return el;
-	};
-}
-
-/**
- * requestAnimationFrame() polyfill
- * By Erik Möller. Fixes from Paul Irish and Tino Zijdel.
- * @link http://paulirish.com/2011/requestanimationframe-for-smart-animating/
- * @link http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
- * @license MIT
- */
-(function() {
-	var lastTime = 0;
-	var vendors = ['ms', 'moz', 'webkit', 'o'];
-	for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-		window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-		window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] ||
-		                              window[vendors[x]+'CancelRequestAnimationFrame'];
-	}
-
-	if (!window.requestAnimationFrame) {
-		window.requestAnimationFrame = function(callback, element) {
-			var currTime = new Date().getTime();
-			var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-			var id = window.setTimeout((function() { callback(currTime + timeToCall); }),
-				timeToCall);
-			lastTime = currTime + timeToCall;
-			return id;
-		};
-	}
-
-	if (!window.cancelAnimationFrame) {
-		window.cancelAnimationFrame = function(id) {
-			clearTimeout(id);
-		};
-	}
-}());
-
-(function (root, factory) {
-	if ( typeof define === 'function' && define.amd ) {
-		define([], (function () {
-			return factory(root);
-		}));
-	} else if ( typeof exports === 'object' ) {
-		module.exports = factory(root);
-	} else {
-		root.SmoothScroll = factory(root);
-	}
-})(typeof global !== 'undefined' ? global : typeof window !== 'undefined' ? window : this, (function (window) {
-
-	'use strict';
-
-	//
-	// Feature Test
-	//
-
-	var supports =
-		'querySelector' in document &&
-		'addEventListener' in window &&
-		'requestAnimationFrame' in window &&
-		'closest' in window.Element.prototype;
-
+/*! SmoothScroll v16.1.4 | (c) 2020 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/smooth-scroll */
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global = global || self, global.SmoothScroll = factory());
+}(this, (function () { 'use strict';
 
 	//
 	// Default settings
 	//
 
 	var defaults = {
+
 		// Selectors
 		ignore: '[data-scroll-ignore]',
 		header: null,
+		topOnEmptyHash: true,
 
-		// Speed & Easing
+		// Speed & Duration
 		speed: 500,
+		speedAsDuration: false,
+		durationMax: null,
+		durationMin: null,
+		clip: true,
 		offset: 0,
+
+		// Easing
 		easing: 'easeInOutCubic',
 		customEasing: null,
 
-		// Callback API
-		before: function () {},
-		after: function () {}
+		// History
+		updateURL: true,
+		popstate: true,
+
+		// Custom Events
+		emitEvents: true
+
 	};
 
 
@@ -107,35 +43,43 @@ if (window.Element && !Element.prototype.closest) {
 	//
 
 	/**
-	 * Merge two or more objects. Returns a new object.
-	 * @param {Object}   objects  The objects to merge together
-	 * @returns {Object}          Merged values of defaults and options
+	 * Check if browser supports required methods
+	 * @return {Boolean} Returns true if all required methods are supported
+	 */
+	var supports = function () {
+		return (
+			'querySelector' in document &&
+			'addEventListener' in window &&
+			'requestAnimationFrame' in window &&
+			'closest' in window.Element.prototype
+		);
+	};
+
+	/**
+	 * Merge two or more objects together.
+	 * @param   {Object}   objects  The objects to merge together
+	 * @returns {Object}            Merged values of defaults and options
 	 */
 	var extend = function () {
-
-		// Variables
-		var extended = {};
-		var deep = false;
-		var i = 0;
-		var length = arguments.length;
-
-		// Merge the object into the extended object
-		var merge = function (obj) {
-			for (var prop in obj) {
-				if (obj.hasOwnProperty(prop)) {
-					extended[prop] = obj[prop];
-				}
+		var merged = {};
+		Array.prototype.forEach.call(arguments, function (obj) {
+			for (var key in obj) {
+				if (!obj.hasOwnProperty(key)) return;
+				merged[key] = obj[key];
 			}
-		};
+		});
+		return merged;
+	};
 
-		// Loop through each object and conduct a merge
-		for ( ; i < length; i++ ) {
-			var obj = arguments[i];
-			merge(obj);
+	/**
+	 * Check to see if user prefers reduced motion
+	 * @param  {Object} settings Script settings
+	 */
+	var reduceMotion = function () {
+		if ('matchMedia' in window && window.matchMedia('(prefers-reduced-motion)').matches) {
+			return true;
 		}
-
-		return extended;
-
+		return false;
 	};
 
 	/**
@@ -149,9 +93,9 @@ if (window.Element && !Element.prototype.closest) {
 
 	/**
 	 * Escape special characters for use with querySelector
-	 * @param {String} id The anchor ID to escape
 	 * @author Mathias Bynens
 	 * @link https://github.com/mathiasbynens/CSS.escape
+	 * @param {String} id The anchor ID to escape
 	 */
 	var escapeCharacters = function (id) {
 
@@ -222,6 +166,7 @@ if (window.Element && !Element.prototype.closest) {
 
 		}
 
+		// Return sanitized hash
 		return '#' + result;
 
 	};
@@ -229,8 +174,8 @@ if (window.Element && !Element.prototype.closest) {
 	/**
 	 * Calculate the easing pattern
 	 * @link https://gist.github.com/gre/1650294
-	 * @param {String} type Easing pattern
-	 * @param {Number} time Time animation should take to complete
+	 * @param   {Object} settings Easing pattern
+	 * @param   {Number} time     Time animation should take to complete
 	 * @returns {Number}
 	 */
 	var easingPattern = function (settings, time) {
@@ -270,12 +215,14 @@ if (window.Element && !Element.prototype.closest) {
 
 	/**
 	 * Calculate how far to scroll
-	 * @param {Element} anchor The anchor element to scroll to
-	 * @param {Number} headerHeight Height of a fixed header, if any
-	 * @param {Number} offset Number of pixels by which to offset scroll
+	 * Clip support added by robjtede - https://github.com/cferdinandi/smooth-scroll/issues/405
+	 * @param {Element} anchor       The anchor element to scroll to
+	 * @param {Number}  headerHeight Height of a fixed header, if any
+	 * @param {Number}  offset       Number of pixels by which to offset scroll
+	 * @param {Boolean} clip         If true, adjust scroll distance to prevent abrupt stops near the bottom of the page
 	 * @returns {Number}
 	 */
-	var getEndLocation = function (anchor, headerHeight, offset) {
+	var getEndLocation = function (anchor, headerHeight, offset, clip) {
 		var location = 0;
 		if (anchor.offsetParent) {
 			do {
@@ -284,7 +231,10 @@ if (window.Element && !Element.prototype.closest) {
 			} while (anchor);
 		}
 		location = Math.max(location - headerHeight - offset, 0);
-		return location;
+		if (clip) {
+			location = Math.min(location, getDocumentHeight() - window.innerHeight);
+		}
+			return location;
 	};
 
 	/**
@@ -297,6 +247,66 @@ if (window.Element && !Element.prototype.closest) {
 	};
 
 	/**
+	 * Calculate the speed to use for the animation
+	 * @param  {Number} distance The distance to travel
+	 * @param  {Object} settings The plugin settings
+	 * @return {Number}          How fast to animate
+	 */
+	var getSpeed = function (distance, settings) {
+		var speed = settings.speedAsDuration ? settings.speed : Math.abs(distance / 1000 * settings.speed);
+		if (settings.durationMax && speed > settings.durationMax) return settings.durationMax;
+		if (settings.durationMin && speed < settings.durationMin) return settings.durationMin;
+		return parseInt(speed, 10);
+	};
+
+	var setHistory = function (options) {
+
+		// Make sure this should run
+		if (!history.replaceState || !options.updateURL || history.state) return;
+
+		// Get the hash to use
+		var hash = window.location.hash;
+		hash = hash ? hash : '';
+
+		// Set a default history
+		history.replaceState(
+			{
+				smoothScroll: JSON.stringify(options),
+				anchor: hash ? hash : window.pageYOffset
+			},
+			document.title,
+			hash ? hash : window.location.href
+		);
+
+	};
+
+	/**
+	 * Update the URL
+	 * @param  {Node}    anchor  The anchor that was scrolled to
+	 * @param  {Boolean} isNum   If true, anchor is a number
+	 * @param  {Object}  options Settings for Smooth Scroll
+	 */
+	var updateURL = function (anchor, isNum, options) {
+
+		// Bail if the anchor is a number
+		if (isNum) return;
+
+		// Verify that pushState is supported and the updateURL option is enabled
+		if (!history.pushState || !options.updateURL) return;
+
+		// Update URL
+		history.pushState(
+			{
+				smoothScroll: JSON.stringify(options),
+				anchor: anchor.id
+			},
+			document.title,
+			anchor === document.documentElement ? '#top' : '#' + anchor.id
+		);
+
+	};
+
+	/**
 	 * Bring the anchored element into focus
 	 * @param {Node}     anchor      The anchor element
 	 * @param {Number}   endLocation The end location to scroll to
@@ -304,12 +314,17 @@ if (window.Element && !Element.prototype.closest) {
 	 */
 	var adjustFocus = function (anchor, endLocation, isNum) {
 
+		// Is scrolling to top of page, blur
+		if (anchor === 0) {
+			document.body.focus();
+		}
+
 		// Don't run if scrolling to a number on the page
 		if (isNum) return;
 
 		// Otherwise, bring anchor element into focus
 		anchor.focus();
-		if (document.activeElement.id !== anchor.id) {
+		if (document.activeElement !== anchor) {
 			anchor.setAttribute('tabindex', '-1');
 			anchor.focus();
 			anchor.style.outline = 'none';
@@ -319,14 +334,22 @@ if (window.Element && !Element.prototype.closest) {
 	};
 
 	/**
-	 * Check to see if user prefers reduced motion
-	 * @param  {Object} settings Script settings
+	 * Emit a custom event
+	 * @param  {String} type    The event type
+	 * @param  {Object} options The settings object
+	 * @param  {Node}   anchor  The anchor element
+	 * @param  {Node}   toggle  The toggle element
 	 */
-	var reduceMotion = function (settings) {
-		if ('matchMedia' in window && window.matchMedia('(prefers-reduced-motion)').matches) {
-			return true;
-		}
-		return false;
+	var emitEvent = function (type, options, anchor, toggle) {
+		if (!options.emitEvents || typeof window.CustomEvent !== 'function') return;
+		var event = new CustomEvent(type, {
+			bubbles: true,
+			detail: {
+				anchor: anchor,
+				toggle: toggle
+			}
+		});
+		document.dispatchEvent(event);
 	};
 
 
@@ -341,7 +364,7 @@ if (window.Element && !Element.prototype.closest) {
 		//
 
 		var smoothScroll = {}; // Object for public APIs
-		var settings, anchor, toggle, fixedHeader, headerHeight, eventTimeout, animationInterval;
+		var settings, toggle, fixedHeader, animationInterval;
 
 
 		//
@@ -351,9 +374,11 @@ if (window.Element && !Element.prototype.closest) {
 		/**
 		 * Cancel a scroll-in-progress
 		 */
-		smoothScroll.cancelScroll = function () {
-			// clearInterval(animationInterval);
+		smoothScroll.cancelScroll = function (noEvent) {
 			cancelAnimationFrame(animationInterval);
+			animationInterval = null;
+			if (noEvent) return;
+			emitEvent('scrollCancel', settings);
 		};
 
 		/**
@@ -364,26 +389,27 @@ if (window.Element && !Element.prototype.closest) {
 		 */
 		smoothScroll.animateScroll = function (anchor, toggle, options) {
 
+			// Cancel any in progress scrolls
+			smoothScroll.cancelScroll();
+
 			// Local settings
-			var animateSettings = extend(settings || defaults, options || {}); // Merge user options with defaults
+			var _settings = extend(settings || defaults, options || {}); // Merge user options with defaults
 
 			// Selectors and variables
 			var isNum = Object.prototype.toString.call(anchor) === '[object Number]' ? true : false;
 			var anchorElem = isNum || !anchor.tagName ? null : anchor;
 			if (!isNum && !anchorElem) return;
 			var startLocation = window.pageYOffset; // Current location on the page
-			if (animateSettings.header && !fixedHeader) {
+			if (_settings.header && !fixedHeader) {
 				// Get the fixed header if not already set
-				fixedHeader = document.querySelector( animateSettings.header );
+				fixedHeader = document.querySelector(_settings.header);
 			}
-			if (!headerHeight) {
-				// Get the height of a fixed header if one exists and not already set
-				headerHeight = getHeaderHeight(fixedHeader);
-			}
-			var endLocation = isNum ? anchor : getEndLocation(anchorElem, headerHeight, parseInt((typeof animateSettings.offset === 'function' ? animateSettings.offset() : animateSettings.offset), 10)); // Location to scroll to
+			var headerHeight = getHeaderHeight(fixedHeader);
+			var endLocation = isNum ? anchor : getEndLocation(anchorElem, headerHeight, parseInt((typeof _settings.offset === 'function' ? _settings.offset(anchor, toggle) : _settings.offset), 10), _settings.clip); // Location to scroll to
 			var distance = endLocation - startLocation; // distance to travel
 			var documentHeight = getDocumentHeight();
 			var timeLapsed = 0;
+			var speed = getSpeed(distance, _settings);
 			var start, percentage, position;
 
 			/**
@@ -398,19 +424,20 @@ if (window.Element && !Element.prototype.closest) {
 				var currentLocation = window.pageYOffset;
 
 				// Check if the end location has been reached yet (or we've hit the end of the document)
-				if ( position == endLocation || currentLocation == endLocation || ((startLocation < endLocation && window.innerHeight + currentLocation) >= documentHeight )) {
+				if (position == endLocation || currentLocation == endLocation || ((startLocation < endLocation && window.innerHeight + currentLocation) >= documentHeight)) {
 
 					// Clear the animation timer
-					smoothScroll.cancelScroll();
+					smoothScroll.cancelScroll(true);
 
 					// Bring the anchored element into focus
 					adjustFocus(anchor, endLocation, isNum);
 
-					// Run callback after animation complete
-					animateSettings.after(anchor, toggle);
+					// Emit a custom event
+					emitEvent('scrollStop', _settings, anchor, toggle);
 
 					// Reset start
 					start = null;
+					animationInterval = null;
 
 					return true;
 
@@ -423,12 +450,12 @@ if (window.Element && !Element.prototype.closest) {
 			var loopAnimateScroll = function (timestamp) {
 				if (!start) { start = timestamp; }
 				timeLapsed += timestamp - start;
-				percentage = (timeLapsed / parseInt(animateSettings.speed, 10));
+				percentage = speed === 0 ? 0 : (timeLapsed / speed);
 				percentage = (percentage > 1) ? 1 : percentage;
-				position = startLocation + (distance * easingPattern(animateSettings, percentage));
+				position = startLocation + (distance * easingPattern(_settings, percentage));
 				window.scrollTo(0, Math.floor(position));
 				if (!stopAnimateScroll(position, endLocation)) {
-					window.requestAnimationFrame(loopAnimateScroll);
+					animationInterval = window.requestAnimationFrame(loopAnimateScroll);
 					start = timestamp;
 				}
 			};
@@ -438,36 +465,24 @@ if (window.Element && !Element.prototype.closest) {
 			 * @link https://github.com/cferdinandi/smooth-scroll/issues/45
 			 */
 			if (window.pageYOffset === 0) {
-				window.scrollTo( 0, 0 );
+				window.scrollTo(0, 0);
 			}
 
-			// Run callback before animation starts
-			animateSettings.before(anchor, toggle);
+			// Update the URL
+			updateURL(anchor, isNum, _settings);
+
+			// If the user prefers reduced motion, jump to location
+			if (reduceMotion()) {
+				adjustFocus(anchor, Math.floor(endLocation), false);
+				return;
+			}
+
+			// Emit a custom event
+			emitEvent('scrollStart', _settings, anchor, toggle);
 
 			// Start scrolling animation
-			smoothScroll.cancelScroll();
+			smoothScroll.cancelScroll(true);
 			window.requestAnimationFrame(loopAnimateScroll);
-
-
-		};
-
-		/**
-		 * Handle has change event
-		 */
-		var hashChangeHandler = function (event) {
-
-			// Only run if there's an anchor element to scroll to
-			if (!anchor) return;
-
-			// Reset the anchor element's ID
-			anchor.id = anchor.getAttribute('data-scroll-id');
-
-			// Scroll to the anchored content
-			smoothScroll.animateScroll(anchor, toggle);
-
-			// Reset anchor and toggle
-			anchor = null;
-			toggle = null;
 
 		};
 
@@ -476,11 +491,16 @@ if (window.Element && !Element.prototype.closest) {
 		 */
 		var clickHandler = function (event) {
 
-			// Don't run if the user prefers reduced motion
-			if (reduceMotion(settings)) return;
+			// Don't run if event was canceled but still bubbled up
+			// By @mgreter - https://github.com/cferdinandi/smooth-scroll/pull/462/
+			if (event.defaultPrevented) return;
 
-			// Don't run if right-click or command/control + click
-			if (event.button !== 0 || event.metaKey || event.ctrlKey) return;
+			// Don't run if right-click or command/control + click or shift + click
+			if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return;
+
+			// Check if event.target has closest() method
+			// By @totegi - https://github.com/cferdinandi/smooth-scroll/pull/401/
+			if (!('closest' in event.target)) return;
 
 			// Check if a smooth scroll link was clicked
 			toggle = event.target.closest(selector);
@@ -489,7 +509,7 @@ if (window.Element && !Element.prototype.closest) {
 			// Only run if link is an anchor and points to the current page
 			if (toggle.hostname !== window.location.hostname || toggle.pathname !== window.location.pathname || !/#/.test(toggle.href)) return;
 
-			// Get the sanitized hash
+			// Get an escaped version of the hash
 			var hash;
 			try {
 				hash = escapeCharacters(decodeURIComponent(toggle.hash));
@@ -497,58 +517,46 @@ if (window.Element && !Element.prototype.closest) {
 				hash = escapeCharacters(toggle.hash);
 			}
 
-			// If the hash is empty, scroll to the top of the page
-			if (hash === '#') {
-
-				// Prevent default link behavior
-				event.preventDefault();
-
-				// Set the anchored element
-				anchor = document.body;
-
-				// Save or create the ID as a data attribute and remove it (prevents scroll jump)
-				var id = anchor.id ? anchor.id : 'smooth-scroll-top';
-				anchor.setAttribute('data-scroll-id', id);
-				anchor.id = '';
-
-				// If no hash change event will happen, fire manually
-				// Otherwise, update the hash
-				if (window.location.hash.substring(1) === id) {
-					hashChangeHandler();
-				} else {
-					window.location.hash = id;
-				}
-
-				return;
-
-			}
-
 			// Get the anchored element
-			anchor = document.querySelector(hash);
-
-			// If anchored element exists, save the ID as a data attribute and remove it (prevents scroll jump)
-			if (!anchor) return;
-			anchor.setAttribute('data-scroll-id', anchor.id);
-			anchor.id = '';
-
-			// If no hash change event will happen, fire manually
-			if (toggle.hash === window.location.hash) {
-				event.preventDefault();
-				hashChangeHandler();
+			var anchor;
+			if (hash === '#') {
+				if (!settings.topOnEmptyHash) return;
+				anchor = document.documentElement;
+			} else {
+				anchor = document.querySelector(hash);
 			}
+			anchor = !anchor && hash === '#top' ? document.documentElement : anchor;
+
+			// If anchored element exists, scroll to it
+			if (!anchor) return;
+			event.preventDefault();
+			setHistory(settings);
+			smoothScroll.animateScroll(anchor, toggle);
 
 		};
 
 		/**
-		 * On window scroll and resize, only run events at a rate of 15fps for better performance
+		 * Animate scroll on popstate events
 		 */
-		var resizeThrottler = function (event) {
-			if (!eventTimeout) {
-				eventTimeout = setTimeout((function() {
-					eventTimeout = null; // Reset timeout
-					headerHeight = getHeaderHeight(fixedHeader); // Get the height of a fixed header if one exists
-				}), 66);
+		var popstateHandler = function () {
+
+			// Stop if history.state doesn't exist (ex. if clicking on a broken anchor link).
+			// fixes `Cannot read property 'smoothScroll' of null` error getting thrown.
+			if (history.state === null) return;
+
+			// Only run if state is a popstate record for this instantiation
+			if (!history.state.smoothScroll || history.state.smoothScroll !== JSON.stringify(settings)) return;
+
+			// Get the anchor
+			var anchor = history.state.anchor;
+			if (typeof anchor === 'string' && anchor) {
+				anchor = document.querySelector(escapeCharacters(history.state.anchor));
+				if (!anchor) return;
 			}
+
+			// Animate scroll to anchor link
+			smoothScroll.animateScroll(anchor, null, {updateURL: false});
+
 		};
 
 		/**
@@ -561,29 +569,27 @@ if (window.Element && !Element.prototype.closest) {
 
 			// Remove event listeners
 			document.removeEventListener('click', clickHandler, false);
-			window.removeEventListener('resize', resizeThrottler, false);
+			window.removeEventListener('popstate', popstateHandler, false);
 
 			// Cancel any scrolls-in-progress
 			smoothScroll.cancelScroll();
 
 			// Reset variables
 			settings = null;
-			anchor = null;
 			toggle = null;
 			fixedHeader = null;
-			headerHeight = null;
-			eventTimeout = null;
 			animationInterval = null;
+
 		};
 
 		/**
 		 * Initialize Smooth Scroll
 		 * @param {Object} options User settings
 		 */
-		smoothScroll.init = function (options) {
+		var init = function () {
 
 			// feature test
-			if (!supports) return;
+			if (!supports()) throw 'Smooth Scroll: This browser does not support the required JavaScript methods and browser APIs.';
 
 			// Destroy any existing initializations
 			smoothScroll.destroy();
@@ -591,17 +597,13 @@ if (window.Element && !Element.prototype.closest) {
 			// Selectors and variables
 			settings = extend(defaults, options || {}); // Merge user options with defaults
 			fixedHeader = settings.header ? document.querySelector(settings.header) : null; // Get the fixed header
-			headerHeight = getHeaderHeight(fixedHeader);
 
 			// When a toggle is clicked, run the click handler
 			document.addEventListener('click', clickHandler, false);
 
-			// Listen for hash changes
-			window.addEventListener('hashchange', hashChangeHandler, false);
-
-			// If window is resized and there's a fixed header, recalculate its size
-			if (fixedHeader) {
-				window.addEventListener('resize', resizeThrottler, false);
+			// If updateURL and popState are enabled, listen for pop events
+			if (settings.updateURL && settings.popstate) {
+				window.addEventListener('popstate', popstateHandler, false);
 			}
 
 		};
@@ -611,7 +613,7 @@ if (window.Element && !Element.prototype.closest) {
 		// Initialize plugin
 		//
 
-		smoothScroll.init(options);
+		init();
 
 
 		//
@@ -624,4 +626,4 @@ if (window.Element && !Element.prototype.closest) {
 
 	return SmoothScroll;
 
-}));
+})));
