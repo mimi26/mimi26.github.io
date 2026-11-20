@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-dark-bg text-slate-200 antialiased;
+  margin: 0;
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom accessibility focus ring */
+:focus-visible {
+  @apply outline-none ring-2 ring-dark-accent ring-offset-2 ring-offset-dark-bg;
+}
+
+.section-padding {
+  @apply py-20 px-6 md:px-12 lg:px-24;
+}
