@@ -1,5 +1,5 @@
 import React from 'react';
-import eseteeImg from '../assets/images/portfolio/eseteecheckout.png';
+import esteeImg from '../assets/images/portfolio/esteecheckout.png';
 import isittimeImg from '../assets/images/portfolio/isittimeyet.png';
 import weatherImg from '../assets/images/portfolio/national_weather.png';
 import simonImg from '../assets/images/portfolio/simon.png';
@@ -16,10 +16,10 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Esetee Checkout',
+    title: 'Estee Checkout',
     description:
       'A high-performance e-commerce checkout experience with real-time validation and seamless payment integration.',
-    image: eseteeImg,
+    image: esteeImg,
     tech: ['React', 'TypeScript', 'Tailwind', 'Stripe API'],
     liveUrl: 'https://example.com/esetee',
     githubUrl: 'https://github.com/example/esetee',
@@ -66,10 +66,7 @@ const Portfolio: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto animate-fade-in">
       <div className="text-center mb-16">
-        <h2
-          className="text-4xl md:text-6xl font-bold text-white mb-4"
-          style={{ fontFamily: "'Fredoka', sans-serif" }}
-        >
+        <h2 className="text-4xl md:text-6xl font-semibold text-white mb-4">
           My{' '}
           <span
             className="text-dark-accent text-5xl md:text-7xl"

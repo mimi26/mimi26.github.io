@@ -4,7 +4,7 @@ const Contact: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto text-center animate-fade-in space-y-12">
       <div>
-        <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
+        <h2 className="text-4xl md:text-6xl font-semibold text-white mb-4 leading-tight">
           Get In{' '}
           <span
             className="text-dark-accent text-5xl md:text-7xl"

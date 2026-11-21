@@ -21,7 +21,7 @@ const About: React.FC = () => {
     <div className="max-w-3xl mx-auto flex flex-col items-center text-center space-y-12 animate-fade-in">
       <div className="flex justify-center">
         <div className="relative group">
-          <div className="absolute -inset-2 bg-gradient-to-r from-dark-accent via-dark-secondary to-pink-500 rounded-full blur opacity-40 group-hover:opacity-70 transition duration-1000 animate-pulse"></div>
+          <div className="absolute -inset-2 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-500 rounded-full blur opacity-40 group-hover:opacity-70 transition duration-1000 animate-pulse"></div>
           <img
             src={profileImg}
             alt="Mimi Klein Profile"
@@ -31,7 +31,7 @@ const About: React.FC = () => {
       </div>
 
       <div className="space-y-6">
-        <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
+        <h2 className="text-4xl md:text-6xl font-semibold text-white mb-4 leading-tight">
           Hi, I'm{' '}
           <span
             className="text-dark-accent text-5xl md:text-7xl"
@@ -50,14 +50,14 @@ const About: React.FC = () => {
         </p>
 
         <div className="space-y-4 pt-8">
-          <h3 className="text-xl font-bold text-white text-center mb-6">
+          <h3 className="text-xl font-semibold text-white text-center mb-6">
             Technical Toolkit
           </h3>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-2xl mx-auto">
             {skills.map((skill) => (
               <div
                 key={skill}
-                className="flex items-center space-x-2 text-sm text-slate-300 hover:text-dark-accent transition-colors duration-200"
+                className="flex items-center space-x-2 text-md text-slate-300 hover:text-dark-accent transition-colors duration-200"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-dark-accent shadow-[0_0_5px_rgba(244,114,182,0.8)]"></span>
                 <span>{skill}</span>

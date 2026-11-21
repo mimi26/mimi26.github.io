@@ -10,7 +10,7 @@ export default {
         dark: {
           bg: '#1a1625', // Deep eggplant/plum dark
           card: '#2d263d', // Muted purple-slate
-          accent: '#f472b6', // soft pink (pink-400)
+          accent: '#dab2ff', // soft purple (purple-300)
           secondary: '#c084fc', // soft purple (purple-400)
         }
       },
