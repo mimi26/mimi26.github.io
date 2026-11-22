@@ -1,4 +1,5 @@
 import React from 'react';
+import { HiOutlineCode, HiOutlineExternalLink } from 'react-icons/hi';
 import esteeImg from '../assets/images/portfolio/esteecheckout.png';
 import isittimeImg from '../assets/images/portfolio/isittimeyet.png';
 import weatherImg from '../assets/images/portfolio/national_weather.png';
@@ -10,55 +11,68 @@ interface Project {
   description: string;
   image: string;
   tech: string[];
-  liveUrl: string;
-  githubUrl: string;
+  liveUrl?: string;
+  githubUrl?: string;
 }
 
 const projects: Project[] = [
   {
-    title: 'Estee Checkout',
+    title: 'Estée Lauder Checkout',
     description:
       'A high-performance e-commerce checkout experience with real-time validation and seamless payment integration.',
     image: esteeImg,
-    tech: ['React', 'TypeScript', 'Tailwind', 'Stripe API'],
-    liveUrl: 'https://example.com/esetee',
-    githubUrl: 'https://github.com/example/esetee',
+    tech: ['React', 'TypeScript', 'MobX', 'HTML5', 'CSS3'],
+    liveUrl: 'https://www.aveda.com/checkout#/delivery',
   },
   {
     title: 'Is It Time Yet?',
     description:
       'A playful countdown application with a unique design and interactive animations to track significant events.',
     image: isittimeImg,
-    tech: ['JavaScript', 'CSS Animations', 'Vite'],
-    liveUrl: 'https://example.com/isittime',
-    githubUrl: 'https://github.com/example/isittime',
+    tech: ['JavaScript', 'HTML5', 'CSS3', 'CSS Animations'],
+    liveUrl: 'https://isittimeyet.wisp.place/',
+    githubUrl: 'https://tangled.org/mimi-k.bsky.social/is_it_time_yet',
   },
   {
     title: 'National Weather App',
     description:
       'Comprehensive weather tracking application utilizing open-source APIs to provide accurate forecasts nationwide.',
     image: weatherImg,
-    tech: ['React', 'OpenWeatherMap API', 'Tailwind'],
-    liveUrl: 'https://example.com/weather',
-    githubUrl: 'https://github.com/example/weather',
+    tech: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'National Weather Service API',
+      'HTML5',
+      'CSS3',
+    ],
+    liveUrl: 'https://national-weather-mimiklein.vercel.app/',
+    githubUrl: 'https://github.com/mimi26/nws_weather',
   },
   {
     title: 'Simon Game',
     description:
       'A digital recreation of the classic memory game Simon, focusing on timing, sound effects and responsive state management.',
     image: simonImg,
-    tech: ['JavaScript', 'HTML5 Audio', 'CSS3'],
-    liveUrl: 'https://example.com/simon',
-    githubUrl: 'https://github.com/example/simon',
+    tech: ['React', 'JavaScript', 'HTML5', 'CSS3'],
+    liveUrl: 'https://simonreact.netlify.app/',
+    githubUrl: 'https://github.com/mimi26/simon-react',
   },
   {
     title: 'Task Management App',
     description:
       'A robust productivity tool with drag-and-drop functionality, task prioritization, and local storage persistence.',
     image: taskappImg,
-    tech: ['React', 'TypeScript', 'LocalStorage', 'Tailwind'],
-    liveUrl: 'https://example.com/taskapp',
-    githubUrl: 'https://github.com/example/taskapp',
+    tech: [
+      'React',
+      'JavaScript',
+      'Node.js',
+      'Express',
+      'PostgreSQL',
+      'HTML5',
+      'CSS3',
+    ],
+    githubUrl: 'https://github.com/mimi26/task-organizer',
   },
 ];
 
@@ -94,48 +108,31 @@ const Portfolio: React.FC = () => {
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-dark-bg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 bg-white text-dark-bg rounded-full hover:bg-dark-accent transition-colors"
-                  aria-label={`Live demo of ${project.title}`}
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-white text-dark-bg rounded-full hover:bg-dark-accent transition-colors"
+                    aria-label={`Live demo of ${project.title}`}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    <HiOutlineExternalLink
+                      className="w-5 h-5"
+                      aria-hidden="true"
                     />
-                  </svg>
-                </a>
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 bg-white text-dark-bg rounded-full hover:bg-dark-accent transition-colors"
-                  aria-label={`GitHub repo of ${project.title}`}
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-white text-dark-bg rounded-full hover:bg-dark-accent transition-colors"
+                    aria-label={`GitHub repo of ${project.title}`}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M10 20l4-16m4 4H10m0 0l4-4"
-                    />
-                  </svg>
-                </a>
+                    <HiOutlineCode className="w-5 h-5" aria-hidden="true" />
+                  </a>
+                )}
               </div>
             </div>
             <div className="p-6 space-y-4">
