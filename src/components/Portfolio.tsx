@@ -36,7 +36,7 @@ const projects: Project[] = [
   {
     title: 'National Weather App',
     description:
-      'Comprehensive weather tracking application utilizing open-source APIs to provide accurate forecasts nationwide.',
+      'Weather tracking application without the clutter utilizing an open-source API to provide accurate forecasts.',
     image: weatherImg,
     tech: [
       'React',
@@ -60,8 +60,7 @@ const projects: Project[] = [
   },
   {
     title: 'Task Management App',
-    description:
-      'A robust productivity tool with drag-and-drop functionality, task prioritization, and local storage persistence.',
+    description: 'A robust productivity tool with task prioritization.',
     image: taskappImg,
     tech: [
       'React',

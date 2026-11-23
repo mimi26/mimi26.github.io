@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
             <li key={link.name}>
               <a
                 href={link.href}
-                className="text-slate-300 hover:text-dark-accent transition-colors duration-200 text-sm font-medium"
+                className="text-slate-300 hover:text-dark-accent transition-colors duration-200 text-base font-medium"
                 aria-label={`Navigate to ${link.name} section`}
               >
                 {link.name}

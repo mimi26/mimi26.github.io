@@ -40,13 +40,15 @@ const About: React.FC = () => {
             Mimi Klein
           </span>
         </h2>
-        <p className="text-slate-400 leading-relaxed text-lg max-w-2xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
+        <p className="text-slate-300 leading-relaxed text-lg max-w-2xl mx-auto">
+          I'm a software engineer with 8 years of experience building web
+          applications, mostly with TypeScript and React. I studied biology
+          before finding my way into software, and I think I've always been
+          drawn to figuring out how things work and solving problems. I like
+          learning new things, getting curious about unfamiliar technologies,
+          and occasionally going down rabbit holes just to see where they lead.
+          I have two cats, who are usually somewhere nearby while I'm working on
+          my next project.
         </p>
 
         <div className="space-y-4 pt-8">
