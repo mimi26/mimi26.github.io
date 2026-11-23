@@ -67,13 +67,15 @@ const Contact: React.FC = () => {
         <a
           href={CV}
           download="test.pdf"
-          className="px-8 py-3 bg-dark-accent text-dark-bg font-bold rounded-full hover:bg-white transition-all duration-200 transform hover:scale-105 shadow-lg shadow-dark-accent/20 flex items-center"
+          className="px-8 py-3 space-y-6 flex flex-col items-center"
           aria-label="Download Mimi Klein's CV in PDF format"
         >
-          Download CV
-          <HiOutlineDocumentText className="w-8 h-8" aria-hidden="true" />
+          <div className="px-8 py-3 bg-dark-accent text-dark-bg font-bold rounded-full hover:bg-white transition-all duration-200 transform hover:scale-105 shadow-lg shadow-dark-accent/20 flex items-center">
+            Download CV
+            <HiOutlineDocumentText className="w-8 h-8" aria-hidden="true" />
+          </div>
+          <img src={CVimage} alt="Mimi Klein's CV" />
         </a>
-        <img src={CVimage} alt="Mimi Klein's CV" />
       </div>
     </div>
   );
