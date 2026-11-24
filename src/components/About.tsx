@@ -43,12 +43,15 @@ const About: React.FC = () => {
         <p className="text-slate-300 leading-relaxed text-lg max-w-2xl mx-auto">
           I'm a software engineer with 8 years of experience building web
           applications, mostly with TypeScript and React. I studied biology
-          before finding my way into software, and I think I've always been
-          drawn to figuring out how things work and solving problems. I like
-          learning new things, getting curious about unfamiliar technologies,
-          and occasionally going down rabbit holes just to see where they lead.
-          I have two cats, who are usually somewhere nearby while I'm working on
-          my next project.
+          before finding my way into software engineering, and I still approach
+          problems with a scientist's mindset: stay curious, experiment,
+          question assumptions, and follow the evidence. I enjoy learning new
+          technologies, tackling interesting challenges, and figuring out how
+          things work. Outside of coding, I'm a fire performer and a former
+          teacher. Whether I'm writing code or learning a new fire prop, I enjoy
+          the process of experimenting, practicing, and getting a little better
+          at something every day. I also have two cats who keep me company when
+          I'm not coding or spinning fire.
         </p>
 
         <div className="space-y-4 pt-8">
